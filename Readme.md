@@ -1,4 +1,4 @@
-# 🗛 FetchGoogleFontCMake
+# 🔤 FetchGoogleFontCMake
 
 ![gfonts](https://www.fasterize.com/wp-content/uploads/2019/12/googlefont.png)
 
