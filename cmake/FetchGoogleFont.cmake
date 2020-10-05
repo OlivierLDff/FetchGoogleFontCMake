@@ -44,9 +44,9 @@ include(CMakeParseArguments)
 # * `FAMILY`: Family of the font.
 # * `SUB_FAMILY`: Sub Family of the font. *for example, `Condensed` in family `Roboto`*.
 # * `STYLES`: List of styles to download, this is a list. For example `Regular`, `Medium`, `BlackItalic`, ...
-# * `LICENSE`: The font license. Used to build default `URL`. By default `apache`.
-# * `TAG`: Repository tag. Used to build default `URL`. By default `master`.
-# * `URL`: Url font which to download, by default `https://github.com/google/fonts/blob/${TAG}/${LICENSE}`
+# * `LICENSE`: The font license. By default `apache`.
+# * `TAG`: Repository tag. By default `master`.
+# * `URL`: Url repository which to download, by default `https://github.com/google/fonts/`
 # * `OUTPUT_DIR`: The directory in which the font will be downloaded. By default `CMAKE_CURRENT_BINARY_DIR`.
 #
 function(fetch_google_font)
@@ -70,8 +70,9 @@ function(fetch_google_font)
 
   # Make sure url have a default value
   if(NOT ARGGFONT_URL OR ARGGFONT_URL STREQUAL "")
-    set(ARGGFONT_URL "https://github.com/google/fonts/raw/${ARGGFONT_TAG}/${ARGGFONT_LICENSE}")
+    set(ARGGFONT_URL "https://github.com/google/fonts")
   endif()
+  set(BASE_URL ${ARGGFONT_URL}/raw/${ARGGFONT_TAG}/${ARGGFONT_LICENSE})
 
   # Default OUTPUT_DIR to the binary dir
   if(NOT ARGGFONT_OUTPUT_DIR OR ARGGFONT_OUTPUT_DIR STREQUAL "")
@@ -90,7 +91,7 @@ function(fetch_google_font)
     # Create url for the font
     string(TOLOWER ${ARGGFONT_FAMILY} FAMILY_TOLOWER)
     set(FONT_FILENAME "${ARGGFONT_FAMILY}${ARGGFONT_SUB_FAMILY}-${STYLE}.ttf")
-    set(FONT_URL "${ARGGFONT_URL}/${FAMILY_TOLOWER}/${URL_EXTRA_FOLDER}/${FONT_FILENAME}")
+    set(FONT_URL "${BASE_URL}/${FAMILY_TOLOWER}/${URL_EXTRA_FOLDER}/${FONT_FILENAME}")
     set(FONT_FILEPATH ${ARGGFONT_OUTPUT_DIR}/${FONT_FILENAME})
 
     # Check that previous download went ok.

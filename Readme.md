@@ -21,9 +21,9 @@ Usage: `fetch_google_font([options...])`
 * `FAMILY`: Family of the font.
 * `SUB_FAMILY`: Sub Family of the font. *for example, `Condensed` in family `Roboto`*.
 * `STYLES`: List of styles to download, this is a list. For example `Regular`, `Medium`, `BlackItalic`, ...
-* `LICENSE`: The font license. Used to build default `URL`. By default `apache`.
-* `TAG`: Repository tag. Used to build default `URL`. By default `master`.
-* `URL`: Url font which to download, by default `https://github.com/google/fonts/blob/${TAG}/${LICENSE}`
+* `LICENSE`: The font license. By default `apache`.
+* `TAG`: Repository tag. By default `master`.
+* `URL`: Url repository which to download, by default `https://github.com/google/fonts`
 * `OUTPUT_DIR`: The directory in which the font will be downloaded. By default `CMAKE_CURRENT_BINARY_DIR`.
 
 ## [🗜️](https://emojipedia.org/clamp/) Examples
@@ -65,6 +65,18 @@ fetch_google_font(
   FAMILY "Lato"
   STYLES "Black" "BlackItalic" "Bold" "BoldItalic" "ExtraBold" "ExtraBoldItalic" "ExtraLight" "ExtraLightItalic" "Italic" "Light" "LightItalic" "Medium" "MediumItalic" "Regular" "SemiBold" "SemiBoldItalic" "Thin" "ThinItalic"
   LICENSE "ofl"
+)
+```
+
+### Download from custom repo
+
+```cmake
+fetch_google_font(
+  FAMILY "Lato"
+  STYLES "Regular"
+  LICENSE "ofl"
+  URL "https://github.com/OlivierLDff/fonts"
+  TAG "master"
 )
 ```
 
