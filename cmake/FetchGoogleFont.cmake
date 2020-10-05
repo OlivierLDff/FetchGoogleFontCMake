@@ -70,7 +70,7 @@ function(fetch_google_font)
 
   # Make sure url have a default value
   if(NOT ARGGFONT_URL OR ARGGFONT_URL STREQUAL "")
-    set(ARGGFONT_URL "https://github.com/google/fonts/blob/${ARGGFONT_TAG}/${ARGGFONT_LICENSE}")
+    set(ARGGFONT_URL "https://github.com/google/fonts/raw/${ARGGFONT_TAG}/${ARGGFONT_LICENSE}")
   endif()
 
   # Default OUTPUT_DIR to the binary dir
