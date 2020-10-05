@@ -8,10 +8,10 @@ Example:
 
 ```cmake
 fetch_google_font(
-	FAMILY "Roboto"
-	STYLES "Medium" "Regular"
-	OUTPUT_DIR ${CMAKE_CURRENT_BINARY_DIR}/Fonts
-	VERBOSE
+  FAMILY "Roboto"
+  STYLES "Medium" "Regular"
+  OUTPUT_DIR ${CMAKE_CURRENT_BINARY_DIR}/Fonts
+  VERBOSE
 )
 ```
 
@@ -34,8 +34,8 @@ Try examples with `cmake -P examples/examples.cmake`.
 
 ```cmake
 fetch_google_font(
-	FAMILY "Roboto"
-	STYLES "Black" "BlackItalic" "Bold" "BoldItalic" "Italic" "Light" "LightItalic" "Medium" "MediumItalic" "Regular" "Thin" "ThinItalic"
+  FAMILY "Roboto"
+  STYLES "Black" "BlackItalic" "Bold" "BoldItalic" "Italic" "Light" "LightItalic" "Medium" "MediumItalic" "Regular" "Thin" "ThinItalic"
 )
 ```
 
@@ -43,9 +43,9 @@ fetch_google_font(
 
 ```cmake
 fetch_google_font(
-	FAMILY "Roboto"
-	SUB_FAMILY "Condensed"
-	STYLES "Bold" "BoldItalic" "Italic" "Light" "LightItalic" "Medium" "MediumItalic" "Regular"
+  FAMILY "Roboto"
+  SUB_FAMILY "Condensed"
+  STYLES "Bold" "BoldItalic" "Italic" "Light" "LightItalic" "Medium" "MediumItalic" "Regular"
 )
 ```
 
@@ -53,8 +53,8 @@ fetch_google_font(
 
 ```cmake
 fetch_google_font(
-	FAMILY "RobotoMono"
-	STYLES "Bold" "BoldItalic" "Italic" "Light" "LightItalic" "Medium" "MediumItalic" "Regular" "Thin" "ThinItalic"
+  FAMILY "RobotoMono"
+  STYLES "Bold" "BoldItalic" "Italic" "Light" "LightItalic" "Medium" "MediumItalic" "Regular" "Thin" "ThinItalic"
 )
 ```
 
@@ -62,9 +62,9 @@ fetch_google_font(
 
 ```cmake
 fetch_google_font(
-	FAMILY "Lato"
-	STYLES "Black" "BlackItalic" "Bold" "BoldItalic" "ExtraBold" "ExtraBoldItalic" "ExtraLight" "ExtraLightItalic" "Italic" "Light" "LightItalic" "Medium" "MediumItalic" "Regular" "SemiBold" "SemiBoldItalic" "Thin" "ThinItalic"
-	LICENSE "ofl"
+  FAMILY "Lato"
+  STYLES "Black" "BlackItalic" "Bold" "BoldItalic" "ExtraBold" "ExtraBoldItalic" "ExtraLight" "ExtraLightItalic" "Italic" "Light" "LightItalic" "Medium" "MediumItalic" "Regular" "SemiBold" "SemiBoldItalic" "Thin" "ThinItalic"
+  LICENSE "ofl"
 )
 ```
 
@@ -97,8 +97,8 @@ This file is available in `cmake/FetchGoogleFontCMake.cmake`. It can be used lik
 ```cmake
 include(path/to/FetchGoogleFontCMake.cmake)
 fetch_google_font(
-	FAMILY "Roboto"
-	STYLES "Regular"
+  FAMILY "Roboto"
+  STYLES "Regular"
 )
 ```
 
@@ -109,8 +109,8 @@ Then:
 ```cmake
 include(path/to/FetchGoogleFont.cmake)
 fetch_google_font(
-	FAMILY "Roboto"
-	STYLES "Regular"
+  FAMILY "Roboto"
+  STYLES "Regular"
 )
 ```
 
