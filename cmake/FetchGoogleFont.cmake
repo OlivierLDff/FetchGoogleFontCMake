@@ -93,17 +93,29 @@ function(fetch_google_font)
     set(FONT_URL "${ARGGFONT_URL}/${FAMILY_TOLOWER}/${URL_EXTRA_FOLDER}/${FONT_FILENAME}")
     set(FONT_FILEPATH ${ARGGFONT_OUTPUT_DIR}/${FONT_FILENAME})
 
-    # Download the font
-    if(ARGGFONT_VERBOSE)
-      message(STATUS "Download ${FONT_FILENAME} from ${FONT_URL}")
+    # Check that previous download went ok.
+    if(EXISTS ${FONT_FILEPATH})
+      file(SIZE ${FONT_FILEPATH} FONT_FILESIZE)
+    else()
+      set(FONT_FILESIZE 0)
     endif()
-    file(DOWNLOAD ${FONT_URL} ${FONT_FILEPATH})
 
-    # Check that download went ok. Remove the empty file if failed
-    file (SIZE ${FONT_FILEPATH} FONT_FILESIZE)
-    if(FONT_FILESIZE EQUAL 0)
-      message(WARNING "Fail to download ${FONT_URL}. File doesn't exists.")
-      file(REMOVE ${FONT_FILEPATH})
+    # Only download if file doesn't exist or previous donwload not finished
+    if(NOT EXISTS ${FONT_FILEPATH} OR ${FONT_FILESIZE} EQUAL 0)
+
+      # Download the font
+      if(ARGGFONT_VERBOSE)
+        message(STATUS "Download ${FONT_FILENAME} from ${FONT_URL}")
+      endif()
+      file(DOWNLOAD ${FONT_URL} ${FONT_FILEPATH})
+
+      # Check that download went ok. Remove the empty file if failed
+      file(SIZE ${FONT_FILEPATH} FONT_FILESIZE)
+      if(${FONT_FILESIZE} EQUAL 0)
+        message(WARNING "Fail to download ${FONT_URL}. File doesn't exists.")
+        file(REMOVE ${FONT_FILEPATH})
+      endif()
+
     endif()
 
   endforeach()
